@@ -1,0 +1,100 @@
+/* .home img{
+    width: 200px;
+}
+
+.nev{
+    color: white !important;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    background-color: rgb(45,21,103);
+}
+
+.alna{
+    margin-left: 4rem;
+}
+
+.hxn{
+    margin-right: 15px;
+}
+
+@media screen and (max-width:800px) {
+    .alna{
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .emn{
+        text-align: center;
+    }
+}
+
+@media (min-width:800px) and (max-width:1024px) {
+
+    .alna{
+        margin-left: .5rem;
+    }
+    
+    .hxn{
+        margin-right: 0px;
+    }
+
+    .wallet{
+        margin-right: 2px !important;
+        font-size: 16px !important;
+    }
+}
+
+.wallet{
+    color: chocolate !important;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+ */
+
+ .Styelnone{
+    text-decoration: none !important;
+
+    
+ }
+
+ .style-pp{
+    background: linear-gradient(to right, #fd77b4, #ffbae7);
+ }
+
+ .header-area {
+    background: transparent;
+    padding: 0px 0px 0px !important;
+    position: relative;
+    margin-bottom: -110px !important;
+    z-index: 2;
+    border-bottom: 1px solid#2D305B;
+    background-color: transparent !important;
+    background: transparent !important;
+}
+ @media screen and (max-width:2500px) {
+    .cryptozen_menu ul li a {
+        padding: 17px 5px !important;
+        background-color: transparent !important;
+    }
+ }
+
+ .sticky-nav {
+    left: 0;
+    margin: auto;
+    top: 0;
+    width: 100%;
+    position: fixed!important;
+    box-shadow: 0 0 60px 0 rgb(0 0 0 / 7%);
+    -webkit-animation: 300ms running fadeInDown;
+    animation: 500ms running fadeInUp;
+    -webkit-box-shadow: 0 10px 15px rgb(25 25 25 / 10%);
+    transition: .5s !important;
+    background: #010039!important;
+    z-index: 9999 !important;
+    animation-name: slideInDown;
+    animation-duration: 1.5s;
+}

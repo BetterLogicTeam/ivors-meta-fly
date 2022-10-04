@@ -1,0 +1,11 @@
+.select-system{
+    width: 100%;
+    height: 42px;
+    border-radius: 6px;
+    background-color: rgb(27 35 82) !important;
+    color: white !important;
+}
+
+label{
+    color: white !important;
+}

@@ -1,0 +1,19 @@
+.half{
+    width: 50%;
+}
+
+
+.text_color {
+    color: #000;
+    font-size: 18px;
+}
+
+#myProgress {
+    width: 100%;
+    background-color: lightblue;
+}
+
+#myBar {
+    width: 1%;
+    height: 20px;
+}

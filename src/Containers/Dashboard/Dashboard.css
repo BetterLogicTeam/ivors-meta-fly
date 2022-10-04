@@ -1,0 +1,156 @@
+.bg-b{
+    background-image: linear-gradient(90deg, rgb(11, 22, 149), rgb(189, 39, 197)) !important;    
+}
+
+.income-he{
+    height: 25.5rem !important;
+
+}
+
+.copy-ip{
+    font-size: 15px;
+}
+
+.radius-pp{
+    height: 8rem;
+
+}
+
+.link-aff{
+    margin-bottom: 0px !important;
+}
+
+.profile-login {
+    /* background: linear-gradient(to bottom left, #0033cc 0%, #ff0066 100%) !important; */
+}
+.bg-color{
+    background-color: #1b2352  ;
+    box-shadow: -8px 12px 18px 0 #0d1337;
+    /* background-image: linear-gradient(90deg, rgb(11, 22, 149), rgb(189, 39, 197)); */
+    margin-bottom: 1.5rem;
+    border: 0 solid transparent;
+}
+
+.card{
+    background-color: #1b2352  !important;
+    box-shadow: -8px 12px 18px 0 #0d1337;
+    /* background-image: linear-gradient(90deg, rgb(11, 22, 149), rgb(189, 39, 197)); */
+    margin-bottom: 1.5rem;
+    border: 0 solid transparent;
+
+}
+/* .progress-bar {
+    color: #fff;
+    background-color: #bc27c5 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden !important;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #0d6efd;
+    transition: width .6s ease;
+    border-radius: 15px !important;
+} */
+.progress_bar{
+    background-color: #bc27c5 !important;
+    height: 7px;
+}
+
+
+@media screen and (max-width: 1280px){
+.page-wrapper {
+    margin-top: 20px !important;
+}
+}
+.page-wrapper {
+    height: 100%;
+    margin-top: -34px !important;
+    margin-bottom: 0rem;
+    margin-left: 0px;
+}
+.height_manage{
+    height: 25.5rem !important;
+}
+.height_styke_team{
+    height: 7.5rem !important;
+}
+
+@media screen and (max-width:1000px) {
+    .height_manage{
+    height: auto !important;
+
+    }
+
+    .copy-ip{
+        font-size: 50px;
+    }
+    .card{
+        border-radius: 25px !important;
+    }
+    .dash-h3 {
+        font-size: 57px !important;
+    }
+    .dash-ip{
+        padding: 25px ;
+
+    }
+#income-h4{
+    font-size: 40px !important;
+}
+.topbar{
+    height: 100px;
+}
+
+
+    .height_styke_team{
+        height: 17.5rem !important;
+    }
+    .dashboradtop{
+        margin-top:  2rem !important;
+    }
+.copy_btn_set2{
+    width: 23%;
+    height: 107px;
+    margin-top: 27px;
+}
+
+.copy_btn_set3{
+    margin: 28px 20px;
+}
+
+    .radius-pp{
+        height: 17.5rem !important;
+    }
+    .primary{
+        font-size: 52px !important;
+        margin-top: 30px !important;
+    }
+
+    .card-body p{
+        font-size: 40px !important;
+        
+    }
+.dash-h3{
+    font-size: 40px ;
+}
+
+.card1{
+padding: 20px 50px !important;
+}
+
+
+
+}
+
+.card-body p{
+    font-size: 21px ;
+    
+}
+
+.Prg_container {
+    height: 26rem !important;
+    overflow: hidden;
+    position: relative;
+}

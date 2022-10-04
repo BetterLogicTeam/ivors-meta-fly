@@ -1,0 +1,233 @@
+.expand-nav {
+    background-color: #1b2352  ;
+    color: white;
+    position: absolute;
+    padding-top: 1rem;
+    justify-content: center;
+    width: fit-content;
+    z-index: 99;
+}
+
+.dash-img-ip {
+    width: 25% !important;
+}
+
+.expand-nav-sm {
+    background-color: #1b2352  ;
+    color: white;
+    position: relative;
+
+    padding: 0.7rem 2.1rem;
+    padding-top: 1rem;
+    justify-content: center;
+    width: fit-content;
+}
+
+.expand-nav-sm>a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 0rem;
+}
+
+.expand-nav>a {
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 0.7rem;
+}
+
+.expand-nav>a:hover {
+    color: white;
+    background-color: #050b29  ;
+}
+
+/* .navbar-collapse{    
+    border-bottom: 1px solid rgb(255 255 255 / 15%);
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)
+}
+.brand-bar{    
+    border-bottom: 1px solid rgb(255 255 255 / 15%);
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)
+}
+.navbar-brand{    
+    border-right: 1px solid rgb(255 255 255 / 15%);
+} */
+.topbar {
+    position: relative !important;
+    top: 0;
+    left: 0px;
+    right: 0;
+    background-color: #1b2352  ;
+    height: 50px;
+    /* background-image: linear-gradient(90deg, rgb(11, 22, 149), rgb(189, 39, 197)); */
+    border-bottom: 1px solid rgb(255 255 255 / 15%);
+    z-index: 10;
+    padding: 0px 40px 0px 40px;
+}
+
+.navtop {
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
+
+.nav_top {
+    position: relative !important;
+    top: 0px;
+    right: 0;
+    left: 0;
+    z-index: 9;
+    border-bottom: 1px solid rgb(255 255 255 / 15%);
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    background-clip: border-box;
+    background-image: linear-gradient(90deg, rgb(11, 22, 149), rgb(189, 39, 197));
+    width: 100%;
+    height: 60px;
+    padding: 0px 0px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+    /* background-color: red !important;
+    margin-top: 15rem !important; */
+}
+
+.probileseix {
+    display: flex !important;
+    align-items: center;
+}
+
+.navbar-nav {
+    --bs-nav-link-padding-x: 0;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-font-weight: ;
+    --bs-nav-link-color: var(--bs-navbar-color);
+    --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+    --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    display: none !important;
+
+}
+
+.bg_sm {
+    background-color: #1b2352;
+}
+
+.expand-nav-sm {
+    background-color: #1b2352 ;
+}
+
+.bg_navtopSM {
+    background-color: #1b2352 ;
+}
+
+.navbar-nav-lg {
+    background-color: #1b2352  ;
+    color: black;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+}
+
+.btn1 {
+    color: white;
+    border: 0;
+    padding: 0.7rem 1.5rem !important;
+    background-color: transparent;
+    font-size: 19px !important;
+    font-weight: normal  !important ;
+}
+
+.btn1:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: white;
+}
+
+.Loadingstyle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    /* color: rgb(11, 22, 149) !important; */
+}
+
+.Main_loding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+
+}
+.apexcharts-text{
+    font-size: 40px;
+}
+
+
+
+
+
+
+.profile-login {
+    background-color: #1b2352 !important;
+    /* background: #2b1cb1 !important; */
+}
+
+.nav2 .dropdown-content {
+    /* display: none; */
+    /* position: absolute; */
+    background-color: #111797;
+    width: 300px !important;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    z-index: 1;
+}
+
+@media only screen and (max-width: 1000px){
+.mobile-view{
+    height: 100px;
+}
+
+.head-id{
+    font-size: 35px;
+
+}
+.extra-small-font{
+    font-size: 1.75rem;
+}
+
+.dash-img-ip{
+    width: 57% !important;
+
+}
+
+.expand-nav-sm a{
+font-size: 3rem;
+}
+
+#font-ip-nv {
+    font-size: 3rem!important;
+}
+
+.mobile-nav{
+    margin-left: 89%;
+
+}
+
+}

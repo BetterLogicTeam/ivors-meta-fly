@@ -1,0 +1,139 @@
+@media (min-width:800px) and (max-width:1100px) {
+    
+
+    .how-it-works {
+        color: #fff;
+        font-family: Source Sans Pro;
+        font-style: normal;
+        font-weight: 700;
+        text-align: center;
+        min-width: 927px !important;
+        BACKGROUND: #20163900;
+    }
+    .ak-center{
+        display: block !important;
+
+    }
+/* .ip-mass{
+    height: 300px !important;
+} */
+
+    .contact-section.style-four .contact-icon i {
+        
+        height: 70px;
+        width: 70px;
+        line-height: 49px;
+        text-align: center;
+        
+        font-size: 64px;
+    }
+
+    .link-page{
+        font-size: 40px !important;
+    }
+
+    .pt-60{
+        width: 137%;
+        margin-left: -19% !important;
+    }
+    .contact-section.style-four .form-control {
+        height: 125px;
+        padding: 14px 0 14px 25px;
+        background-color: #1E1D56;
+        border-bottom: 1px solid #1E1D56!important;
+        font-family: 'Inter';
+        border-radius: 80px;
+        margin-bottom: 26px;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 30px !important;
+
+    }
+    #ss-btn1{
+        font-size: 50px !important;
+    }
+    ::placeholder{
+        font-size: 40px !important;
+    }
+    .contact-section.style-four textarea.form-control {
+        height: 290px!important;
+    }
+
+
+    .link-page1{
+        width: 175% !important;
+
+    }
+    .cart-png{
+        width: 127%;
+
+    }
+
+    .cart-png1{
+        width: 200%;
+
+    }
+
+
+    .head-contact{
+        font-size: 60px !important;
+    }
+}
+
+.ss-btn{
+    padding: 15px 30px !important;
+    font-size: 20px !important;
+    background-color: #007bff ;
+    margin-left: 34% !important;
+    margin-bottom: 10px !important;
+
+
+}
+::placeholder { 
+    color: rgb(121, 121, 121) !important;
+    /* opacity: 1; */
+  }
+
+.ip-header a:after{
+    background-color: white !important;
+ 
+
+}
+
+/* .ip-mass{
+    height: 200px !important;
+} */
+
+
+
+.ss-btn:hover{
+    color: #007bff !important;
+}
+/* @media (min-width:1100px) and (max-width:1440px) {
+    
+
+    .how-it-workse {
+        color: #fff;
+        font-family: Source Sans Pro;
+        font-style: normal;
+        font-weight: 700;
+        text-align: center;
+        min-width: 1027px !important;
+        BACKGROUND: #20163900;
+    }
+} */
+
+
+/* @media (min-width:1441px) and (max-width:1660px) {
+    
+
+    .how-it-workse {
+        color: #fff;
+        font-family: Source Sans Pro;
+        font-style: normal;
+        font-weight: 700;
+        text-align: center;
+        min-width: 1027px !important;
+        BACKGROUND: #20163900;
+    }
+} */

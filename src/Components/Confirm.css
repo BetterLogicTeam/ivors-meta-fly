@@ -1,0 +1,25 @@
+.MuiPaper-root {
+    background: #080480 !important;
+    /* background-color: #000 !important; */
+}
+
+.textStyle{
+    color: white;
+}
+
+.MuiDialog-paperWidthSm {
+    max-width: 27% !important;
+}
+
+@media screen and (max-width:1000px) {
+    .MuiDialog-paperWidthSm {
+        max-width: 100% !important;
+    }
+
+    .MuiTypography-colorTextSecondary{
+font-size: 40px !important;
+    }
+    .Discl{
+        font-size: 55px !important;
+    }
+}

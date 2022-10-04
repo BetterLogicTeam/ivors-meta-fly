@@ -1,0 +1,99 @@
+ 
+.fadeInUp{
+    font-size: 15px;
+}
+.hero-section{
+    background-image: url('../../assets/video2.mp4');
+    /* width: 100% !important; */
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+/* .slider-area.style-five video.lazy-video {
+    width: 207% !important;
+    height: 114%;
+} */
+
+.dreamit-cripto-thumb{
+margin-top: 18%;
+}
+.header-1-1{
+    margin-top: 18% !important;  
+}
+
+.fadeInUp{
+    font-size: 25px;
+   
+
+}
+.heading-1{
+    margin-left: -11% !important;
+}
+
+.para-1{
+    margin-left: -11% !important;
+}
+
+.landing-1{
+    margin-top: 38%;
+
+}
+
+}
+
+
+@media only screen and (max-width: 1000px){
+.align-items-center{
+/* width: 122%; */
+}
+.dreamit-btn a {
+    font-size: 53px !important;
+}
+
+.dreamit-btn a:after {
+    position: absolute;
+    content: "";
+    top: 12px;
+    left: 19px;
+    height: 81px;
+    width: 85px;
+}
+
+
+
+.hero-section .hero-content h1 {
+    font-size: 75px !important;
+}
+.para-1{
+    font-size: 35px !important;
+    width: 130%;
+}
+.hero-content{
+    /* margin-top: 22rem !important; */
+
+}
+.width-pp{
+    width: 100% !important;
+
+}
+
+.lazy-video{
+    height: 125% !important;
+
+}
+
+.fadeInUp1{
+    font-size: 50px !important;
+    margin-top: 8rem !important;
+
+
+}
+span.other {
+    height: 40px;
+    width: 40px;
+}
+
+.slider-area.style-five {
+    height: 100%;
+}
+}

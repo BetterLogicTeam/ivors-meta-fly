@@ -1,0 +1,27 @@
+
+
+@media screen and (max-width:1000px) {
+.from-ip-1{
+width: 200% !important;
+margin-left: -49% !important;
+}
+.h-color{
+    font-size: 40px;
+}
+.text-denger-1{
+    font-size: 30px;
+
+}
+.aligin-ip-1{
+    font-size: 35px;
+}
+.profile-ip-1{
+    margin-left: 28px;
+    width: 54.33333333% !important;
+    height: 60px !important;
+
+}
+.withdraw_btn{
+    font-size: 40px !important;
+}
+}
