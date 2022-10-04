@@ -38,7 +38,7 @@ function Login_main({ notify }) {
     }else{
       let res = await axios.get(`https://nftworld-api.herokuapp.com/login?id=${uid}`);
       console.log("logindata",res.data.data)
-      if (res.data.data !== 0) {
+      if (res.data.data == 0) {
        
         toast.success('Login Successfully')
         localStorage.setItem("isAuthenticated", true);

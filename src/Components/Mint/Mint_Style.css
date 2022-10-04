@@ -27,6 +27,10 @@
     border-radius: 10px;
 }
 
+.mint_main{
+    color: white !important;
+}
+
 .welcome-thumb {
     top: 34%;
     left: -16%;
@@ -85,6 +89,10 @@
     transition: all .3s ease;
     background: #5138ee;
     font-weight: bold;
+}
+
+h6{
+    color: white;
 }
 
 .Model_Body_top{

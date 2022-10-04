@@ -31,6 +31,7 @@ import NFTHistory from '../../Components/Mint/NFT History';
 
 const Navbar = () => {
     const user = localStorage?.getItem("user");
+    console.log("UID",user)
     let ress = JSON.parse(user);
     let uId = ress?.user_id;
     const [packegeid, setpackegeid] = useState(0)
