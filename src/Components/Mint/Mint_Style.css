@@ -19,16 +19,16 @@
 
 }
 
+h6{
+    color: white;
+}
+
 .mint-head-6{
     background: transparent;
     box-shadow: inset -2px -2px 2px rgb(255 255 255 / 20%), inset 2px 5px 15px rgb(255 255 255 / 50%);
     padding: 10px;
     text-align: center;
     border-radius: 10px;
-}
-
-.mint_main{
-    color: white !important;
 }
 
 .welcome-thumb {
@@ -91,10 +91,6 @@
     font-weight: bold;
 }
 
-h6{
-    color: white;
-}
-
 .Model_Body_top{
     display: flex;
     justify-content: space-between;
@@ -126,6 +122,10 @@ h6{
     font-weight: 800;
     }
 
+    .mint-stly{
+        margin-left: 18.5%;
+    }
+
     .mint-6{
         padding: 48px 57px;
         border-radius: 25px;
@@ -143,9 +143,51 @@ h6{
 
     .btnallhere{
         width: 175% !important;
+        margin-left: 25%;
     }
     .price-ip{
         margin-top: 13%;
     }
+    .img_nft{
+        height: 25rem !important;
+    }
 }
  
+
+.bootom_div{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px 5px 15px;
+}
+
+.btn_value{
+    color: white;
+    width: 100% !important;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: inset -2px -2px 2px rgb(255 255 255 / 20%), inset 2px 5px 15px rgb(255 255 255 / 50%);
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.img_nft {
+    border-radius: 20px;
+    height: 8.5rem;
+}
+
+.mint-head-6 {
+    background: transparent;
+    box-shadow: inset -2px -2px 2px rgb(255 255 255 / 20%), inset 2px 5px 15px rgb(255 255 255 / 50%);
+    padding: 20px 30px 20px 30px !important;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 30px !important;
+}
+.stakepageP{
+    font-size: 30px !important;
+}
+.img_nft{
+    height: 15rem ;
+}
+

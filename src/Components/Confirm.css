@@ -16,6 +16,11 @@
         max-width: 100% !important;
     }
 
+    input.ip-checkbox {
+        width: 30px;
+        height: 30px;
+      }
+
     .MuiTypography-colorTextSecondary{
 font-size: 40px !important;
     }

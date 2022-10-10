@@ -22,12 +22,12 @@ import Withdraw_bouns from '../../Components/Varify-OTP/Withdraw_Bouns/Withdraw_
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 let valueran = 0
-const Dashboard = () => {
-  const dashboard = useSelector((state) => state?.dashboard)
-  const user = localStorage.getItem('user')
+const Dashboard = () => {  
+  // const dashboard = useSelector((state) => state?.dashboard)
+  const user = localStorage.getItem('user')  
   let ress = JSON?.parse(user)
   let Uid = ress?.uid
-  console.log('user', Uid)
+  console.log('user', user)
   const dispatch = useDispatch()
   const getAllData = () => {
     if (user) {
@@ -41,10 +41,10 @@ const Dashboard = () => {
     getAllData()
   }, [])
   let [earn, setearn] = useState()
-  const [netBalance, setnetBalance] = useState()
-  const [withdrawal, setwithdrawal] = useState()
+  const [netBalance, setnetBalance] = useState(0)
+  const [withdrawal, setwithdrawal] = useState(0)
   const [uID, setuID] = useState()
-  const [referral, setReferral] = useState()
+  const [referral, setReferral] = useState(0)
   const [matchingicome, setmatchingicome] = useState(0)
   const [roiIncome, setroiIncome] = useState(0)
   const [earnAmount, setearnAmount] = useState(0)
@@ -57,10 +57,11 @@ const Dashboard = () => {
   const [particioatEarnd, setparticioatEarnd] = useState(0)
   const [EarnAmount, setEarnAmount] = useState(0)
   const [machingLevel, setmachingLevel] = useState(0)
-  const [joinhere, setjoinhere] = useState()
+  const [joinhere, setjoinhere] = useState(0)
   const [packegeid, setpackegeid] = useState(0)
   const [gamedata, setgamedata] = useState(0)
   const [copyTest, setcopyTest] = useState(false)
+  const [totalNftRosIncome, settotalNftRosIncome] = useState(0)
 
   const [ctoincom, setctoincom] = useState(0)
 
@@ -77,11 +78,14 @@ const Dashboard = () => {
   const [rightbusiness, setrightbusiness] = useState(0)
   const [TotalAirdropToken, setTotalAirdropToken] = useState(0)
   const [ReceivedAirdropToken, setReceivedAirdropToken] = useState(0)
+  const [tt, settt] = useState(0);
 
   const [Days_here, setDays_here] = useState(0)
   const [Hours_here, setHours_here] = useState(0)
   const [Munits_here, setMunits_here] = useState(0)
   const [Seconds, setSeconds] = useState(0)
+  const [ctoIncomeOne, setctoIncomeOne] = useState(0)
+  const [ctoIncomeTwo, setctoIncomeTwo] = useState(0)
 
   // let earn=50
   const DashboardAPI = async () => {
@@ -89,24 +93,28 @@ const Dashboard = () => {
       let res = await API.get(`/getDashboardData?uid=${Uid}`)
       res = res.data.data[0]
       console.log('res', res)
+      setctoIncomeOne(res[0].NFT_Pool1)
+      setctoIncomeTwo(res[0].NFT_Pool2)
       setTotalAirdropToken(res.TotalAirdropToken)
       setReceivedAirdropToken(res.ReceivedAirdropToken)
-      setrightbusiness(res.rightbusiness)
-      setleftbusiness(res.leftbusiness)
+      setrightbusiness(res[0].Total_NFT_Team_Business)
+      setleftbusiness(res[0].Total_NFT_Unit)
       setLeftDirect(res.LeftDirect)
       setBonus30DayTimer(res.Bonus30DayTimer)
       setBonus7DayTimer(res.Bonus7DayTimer)
       setTeamBonus(res[0].Total_NFT_Income)
       setRightActiveDownline(res[0].Total_NFT_OPen_Level)
-      setLeftActiveDownline(res[0].Total_NFT_Unit)
+      setLeftActiveDownline(res[0].Total_NFT_Team_Count)
       setRightActiveDirect(res.RightDirect)
       setLeftActiveDirect(res.LeftDirect)
       settotalactivationamount(res.totalactivationamount)
       setctoincom(res.cto_income)
       setparticipantEarned(res[0].earnAmount)
+      settotalNftRosIncome(res[0].NFT_ROI_Income)
+      settt(res[0].tt)
       // console.log("Data", valueran);
       valueran = res.totalincome
-      localStorage.setItem('ID', res.totalincome)
+      localStorage.setItem('ID', res[0].Total_NFT_Income)
       setpackegeid(res[0].My_Team)
       setearn(res?.totalincome)
       //  Net Balance-----------
@@ -126,8 +134,8 @@ const Dashboard = () => {
       // out of ---------------------------------
       setTotalAmount(res[0].Today_NFT_Team_Business)
       setjoinhere(res[0].Total_NFT_Level_income)
-      setEarnAmount(res[0].EarnAmount )
-      
+      setEarnAmount(res[0].Total_NFT_Income)
+
 
       setMaxIncome(res[0].MaxIncome)
       setmachingLevel(res.levelincome)
@@ -143,10 +151,8 @@ const Dashboard = () => {
       //   ? dashboard?.allParticipants?.all_participants
       //   : 0}
 
-      let response = await API.get(`GameWalletData?id=${user}`)
-
-      // console.log("response",response.data.data[0].total);
-      setgamedata(response.data.data[0].total)
+      // let response = await API.get(`GameWalletData?id=${user}`)
+      // setgamedata(response.data.data[0].total)
     } catch (e) {
       console.log('Error While Fatch Dashboard API', e)
     }
@@ -317,7 +323,7 @@ const Dashboard = () => {
     },
   })
 
- 
+
   let [earned_wire, setearned_wire] = new useState({
     series: [
       {
@@ -557,7 +563,7 @@ const Dashboard = () => {
     },
   })
 
-  console.log("Earning Total=>",earning)
+  console.log("Earning Total=>", earning)
 
 
 
@@ -578,7 +584,7 @@ const Dashboard = () => {
                       </div>
                       <div class="mt-1 mb_1">
                         <div class="income_name">
-                          <h4 id="income-h4">Today NFT</h4>
+                          <h4 id="income-h4">Today NFT ROS</h4>
                           <h4 id="income-h4">{`$ ${referral}`}</h4>
                         </div>
                         <div class="progress" style={{ height: '10px' }}>
@@ -596,8 +602,8 @@ const Dashboard = () => {
                       </div>
                       <div class="mt-1 mb_1">
                         <div class="income_name">
-                          <h4 id="income-h4">Total NFT Income</h4>
-                          <h4 id="income-h4">{`$ ${TeamBonus}`}</h4>
+                          <h4 id="income-h4">Total NFT ROS Income</h4>
+                          <h4 id="income-h4">{`$ ${totalNftRosIncome}`}</h4>
                         </div>
                         <div class="progress" style={{ height: '10px' }}>
                           <div class="progress-bar bg-white" style={{ width: '80%' }}></div>
@@ -623,6 +629,29 @@ const Dashboard = () => {
                           <div class="progress-bar bg-white" style={{ width: '60%' }}></div>
                         </div>
                       </div>
+
+                      <div class="mt-1 mb_1">
+                        <div class="income_name">
+                          {/* ROI Income */}
+                          <h4 id="income-h4">Total CTO Income 1</h4>
+                          <h4 id="income-h4">{`$ ${ctoIncomeOne}`}</h4>
+                        </div>
+                        <div class="progress" style={{ height: '10px' }}>
+                          <div class="progress-bar bg-white" style={{ width: '60%' }}></div>
+                        </div>
+                      </div>
+
+                      <div class="mt-1 mb_1">
+                        <div class="income_name">
+                          {/* ROI Income */}
+                          <h4 id="income-h4">Total CTO Income 2</h4>
+                          <h4 id="income-h4">{`$ ${ctoIncomeTwo}`}</h4>
+                        </div>
+                        <div class="progress" style={{ height: '10px' }}>
+                          <div class="progress-bar bg-white" style={{ width: '60%' }}></div>
+                        </div>
+                      </div>
+
                       {/* <div class="mt-1 mb_1">
                     <div class="income_name">
                       Withdrawal Income
@@ -660,18 +689,13 @@ const Dashboard = () => {
                     </div>
                   </div>
                   {/* <div class="col-12 col-lg-6 col-xl-6"> */}
-                  <div class="card radius-10 height_styke_team">
+                  {/* <div class="card radius-10 height_styke_team">
                     <div class="card-body card1">
                       <p>Total NFT Unit</p>
                       <div class="Left_Right">
                         <h3 className="dash-h3">
-                          {LeftActiveDownline} K{/* <br /> */}
-                          {/* Left */}
+                        
                         </h3>
-                        {/* <h6 className='dash-h3'>
-                          {RightActiveDownline}<br />
-                          Right
-                        </h6> */}
                       </div>
                     </div>
                     <div class="progress-wrapper">
@@ -679,20 +703,20 @@ const Dashboard = () => {
                         <div class="progress-bar" role="progressbar" style={{ width: '100' }}></div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* </div> */}
                 </div>
                 <div class="col-12 col-lg-6 col-xl-6">
-                <Total_Earning data={{ netbalance: `${netBalance}`, withdrawal: `${withdrawal}` }} opt={earning} />
-                <div class="card radius-10 height_styke_team">
+                  <Total_Earning data={{ netbalance: `${netBalance}`, withdrawal: `${withdrawal}` }} opt={earning} />
+                  <div class="card radius-10 height_styke_team">
                     <div class="card-body card1">
                       <p>Today NFT Team Business</p>
                       <div class="Left_Right">
                         <h3 className="dash-h3">
-                          {TotalAmount} K
+                          {TotalAmount}
                           {/* {props.data.TotalAmount} */}
-                         
+
                         </h3>
                       </div>
                     </div>
@@ -702,7 +726,7 @@ const Dashboard = () => {
                       </div>
                     </div>
                   </div>
-                  </div>
+                </div>
               </div>
             </div>
 
@@ -714,7 +738,7 @@ const Dashboard = () => {
                       <p>My Team</p>
                       <div class="Left_Right">
                         <h3 className="dash-h3">
-                          {packegeid} K
+                          {packegeid}
                           {/* <br />
                           Left */}
                         </h3>
@@ -738,7 +762,7 @@ const Dashboard = () => {
                       <p>My Referral</p>
                       <div class="Left_Right">
                         <h3 className="dash-h3">
-                          {joined_last_24_hour} K
+                          {joined_last_24_hour}
                           {/* <br />
                           Left Business */}
                         </h3>
@@ -759,10 +783,10 @@ const Dashboard = () => {
                 <div class="col-12 col-lg-6 col-xl-6">
                   <div class="card radius-10 height_styke_team">
                     <div class="card-body card1">
-                      <p>Level Detail</p>
+                      <p>Total NFT Team Count</p>
                       <div class="Left_Right">
                         <h3 className="dash-h3">
-                          {LeftActiveDownline} K
+                          {LeftActiveDownline}
                           {/* <br />
                           Left */}
                         </h3>
@@ -782,10 +806,10 @@ const Dashboard = () => {
                 <div class="col-12 col-lg-6 col-xl-6">
                   <div class="card radius-10  height_styke_team">
                     <div class="card-body card1">
-                      <p>Direct Level Business</p>
+                      <p>Total NFT Unit</p>
                       <div class="Left_Right">
                         <h3 className="dash-h3">
-                          {leftbusiness} K
+                          {leftbusiness}
                           {/* <br />
                           Left Business */}
                         </h3>
@@ -810,7 +834,7 @@ const Dashboard = () => {
                       <p>NFT Rank</p>
                       <div class="Left_Right">
                         <h3 className="dash-h3">
-                          {allParticipants} K
+                          {allParticipants}
                           {/* <br />
                           Left */}
                         </h3>
@@ -839,14 +863,14 @@ const Dashboard = () => {
                             class="wdg-input-box"
                             id="myInput"
                             readonly=""
-                            value={`https://nftxpress.club/Register_main?referrallink=${user}&position=Right`}
+                            value={`https://www.nftworldexposure.io/Register_main?referrallink=${Uid}`}
                           />
                           <div class="fast-msg-box"></div>
                         </div>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <div class="wdg-actions copy_btn_set2">
                           <CopyToClipboard
-                            text={`https://nftxpress.club/Register_main?referrallink=${user}&position=Right`}
+                            text={`https://www.nftworldexposure.io/Register_main?referrallink=${Uid}`}
                             onCopy={() => setcopyTest(true)}
                           >
                             {/* <div class="wdg-actions copy_btn_set2"> */}
@@ -876,7 +900,7 @@ const Dashboard = () => {
                       <p>Total NFT Open Level</p>
                       <div class="Left_Right">
                         <h3 className="dash-h3">
-                          {RightActiveDownline} K
+                          {RightActiveDownline}
                           {/* <br />
                           Left */}
                         </h3>
@@ -899,7 +923,7 @@ const Dashboard = () => {
                       <p>Total NFT Team Business</p>
                       <div class="Left_Right">
                         <h3 className="dash-h3">
-                          {participantEarned} K
+                          {rightbusiness}
                           {/* <br />
                           Left Business */}
                         </h3>
@@ -928,20 +952,20 @@ const Dashboard = () => {
                   <img
                     src="assets3/images/horse_green.png"
                     id="dynamicwidth"
-                    style={{ marginLeft: ((EarnAmount / 1500) * 500).toFixed(0) + '%' }}
+                    style={{ marginLeft: (MaxIncome).toFixed(0) + '%' }}
                   />
 
                   <div id="myProgress">
                     <div
                       className="dash-h3"
                       id="myBar"
-                      style={{ width: ((EarnAmount / 1500) * 500).toFixed(0) + '%', backgroundColor: 'green' }}
+                      style={{ width: (MaxIncome).toFixed(0) + '%', backgroundColor: 'green' }}
                     ></div>
                   </div>
                 </div>
                 <div class="text_color dash-h3" style={{ fontSize: 'medium', color: 'white' }}>
-                  You have Earned Total {EarnAmount} USD out of {`1500`} USD (Your earned {MaxIncome} out of 500% of
-                  your investment )
+
+                  You have earned a total $ {EarnAmount}  out of $ {tt}  (Your earned {MaxIncome}% out of 300% of your investment)
                 </div>
 
                 <br />

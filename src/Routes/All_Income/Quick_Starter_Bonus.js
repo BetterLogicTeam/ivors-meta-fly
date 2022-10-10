@@ -34,7 +34,7 @@ export default function Quick_Starter_Bonus() {
             activation_date: item.dd,
             total_active_team: moment(item?.dd).format("M/D/YYYY h:m:s A"),
             // date:moment(item?.ee).format("M/D/YYYY h:m:s A")
-            total_Business: item?.packageamount ,
+            total_Business: item?.packageamount,
 
             position: item?.pos
         })
@@ -54,7 +54,7 @@ export default function Quick_Starter_Bonus() {
             total_active_team: moment(item?.dd).format("M/D/YYYY h:m:s A"),
             // date:moment(item?.ee).format("M/D/YYYY h:m:s A")
             // date: item?.dd 
-            total_Business: item?.packageamount ,
+            total_Business: item?.packageamount,
 
             position: item?.pos
 
@@ -117,7 +117,7 @@ export default function Quick_Starter_Bonus() {
                         total_active_team: moment(item?.dd).format("M/D/YYYY h:m:s A"),
                         // date:moment(item?.ee).format("M/D/YYYY h:m:s A")
                         // date: item?.dd 
-                        total_Business: item?.packageamount ,
+                        total_Business: item?.packageamount,
 
                         position: item?.pos
 
@@ -165,7 +165,7 @@ export default function Quick_Starter_Bonus() {
                         activation_date: item.dd,
                         total_active_team: moment(item?.dd).format("M/D/YYYY h:m:s A"),
                         // date:moment(item?.ee).format("M/D/YYYY h:m:s A")
-                        total_Business: item?.packageamount ,
+                        total_Business: item?.packageamount,
                         position: item?.pos
 
                     })
@@ -207,11 +207,11 @@ export default function Quick_Starter_Bonus() {
         cols: [
             { Header: 'S.No', accessor: 'sr' },
             { Header: 'User ID', accessor: 'user_id' },
-            { Header: 'From ID', accessor: 'package' },
-            { Header: 'Level', accessor: 'Sports_Bonus' },
+            // { Header: 'From ID', accessor: 'package' },
+            // { Header: 'Level', accessor: 'Sports_Bonus' },
             { Header: 'Income', accessor: 'Income' },
             // { Header: 'Net Income', accessor: 'Net_Income' },
-            { Header: 'Date', accessor: 'date' },
+            { Header: 'Date & Time', accessor: 'date' },
             // { Header: 'Total Business', accessor: 'total_Business' },
         ],
         rows: [
@@ -224,7 +224,7 @@ export default function Quick_Starter_Bonus() {
         <div>
             <div className="row justify-content-center" style={{ height: '70vh' }}>
                 <div className="col-md-11 py-3">
-                    <PagePath data={{ page_name: "Today NFT Level", page_path: "All Income / Today NFT Level" }} />
+                    <PagePath data={{ page_name: "CTO Income 1", page_path: "All Income / CTO Income 1" }} />
                     {/* <div className="row my-4 align-items-end justify-content-center gy-4">
                     <div className="col-md-4 col-lg-4 col-8">
                         <p className="p-color p-0 m-0 mt-1" style={{ color: 'rgb(0 0 0 / 85%)' }}>Select Level</p>
@@ -259,7 +259,7 @@ export default function Quick_Starter_Bonus() {
                     </div>
                 </div> */}
 
-                    <div class="row mt-3" style={{ marginLeft: "10px" }}>
+                    {/* <div class="row mt-3" style={{ marginLeft: "10px" }}>
                         <div class="col-md-3">
                             <label>Enter From Date</label>
                             <input type="date" name="from_date" id="from_date" class="select-system " placeholder="Enter From Date" />
@@ -271,7 +271,7 @@ export default function Quick_Starter_Bonus() {
                         <div class="col-md-3 mt-4">
                             <input type="submit" name="to_date" value="Search" class="btn btn-primary btn-submit-1 mt_5" />
                         </div>
-                    </div>
+                    </div> */}
                     <br />
                     <Table
                         data={currentPost}

@@ -7,14 +7,16 @@ import './Address.css';
 const Self_Address = () => {
     const [address, setaddress] = useState()
     const user = localStorage.getItem("user");
+    let ress = JSON.parse(user)
+      let uId = ress?.uid
 
     const userAddress=async()=>{
-        let res=await API.get(`/getDashboardValues?id=${user}`)
+        let res=await API.get(`/getDashboardData?uid=${uId}`)
         res=res.data.data[0]
         console.log("RES",res);
         // let acc =await loadWeb3()
         // console.log("ACC",acc);
-        setaddress(res.address)
+        setaddress(res[0].btcaddress)
     }
 
     useEffect(() => {

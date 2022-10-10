@@ -4,6 +4,7 @@ import { getMyReferralReport } from '../../Redux/actions/dailyYield'
 import { PagePath, Table, Table_Buttons } from '..'
 import { API } from '../../Redux/actions/API'
 import moment from 'moment'
+import Spinner  from '../Spinner/Spinner';
 // import './Style_for_all.css'
 import '../../Routes/Team_Details/Style.css'
 import { Filter } from '@material-ui/icons'
@@ -11,7 +12,7 @@ import { Filter } from '@material-ui/icons'
 const NFTHistory = () => {
   const [referralApi, setreferralApi] = useState([])
   const [referralApileft, setreferralApileft] = useState([])
-
+  const [loader,setloader] = useState(false)
   const [currentPage, setcurrentPage] = useState(1)
   const [listPerpage, setlistPerpage] = useState(10)
   const [currentPage2, setcurrentPage2] = useState(1)
@@ -156,13 +157,14 @@ const NFTHistory = () => {
 
   const [Tabl, setTbal] = useState('')
   const getTableData = async () => {
+    setloader(true)
     try {
       const res = await fetch(`https://nftworld-api.herokuapp.com/nftHistory?uid=100&fdate=2022-07-22&tdate=2022-07-23`)
       const data1 = await res.json()
 
       let data2 = data1.data[0]
       setTbal(data2)
-
+      setloader(false)
     } catch (e) {
       console.log('Error While calling Referrer API', e)
     }
@@ -184,6 +186,7 @@ const NFTHistory = () => {
   
   return (
     <div className=" row justify-content-center">
+      {loader == true ? <Spinner /> : <></>}
       <div className=" col-lg-11 " style={{ height: '70vh' }}>
         <PagePath data={{ page_name: 'NFT History', page_path: 'Mint / NFT History' }} />
 

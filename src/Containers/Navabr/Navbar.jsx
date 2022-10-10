@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css'
 import { BsArrowRightShort } from 'react-icons/bs';
 import { BiHomeCircle, BiLineChart, BiBook, BiMessageSquareEdit } from 'react-icons/bi';
@@ -28,10 +28,10 @@ import Airdrop_Token_History from '../../Routes/History/Airdrop_Token_History';
 import Governance_Token_Address from '../../Routes/Address/Governance_Token_Address';
 import Collection from '../../Components/Mint/Collection';
 import NFTHistory from '../../Components/Mint/NFT History';
+import NFT_Staking from '../../Components/Staking/NFT_Staking';
 
 const Navbar = () => {
     const user = localStorage?.getItem("user");
-    console.log("UID",user)
     let ress = JSON.parse(user);
     let uId = ress?.user_id;
     const [packegeid, setpackegeid] = useState(0)
@@ -57,9 +57,10 @@ const Navbar = () => {
     }
 
     const dashbord = async () => {
-        let res = await API.get(`/getDashboardValues?id=${user}`)
+        let res = await API.get(`/getDashboardData?uid=${uId}`)
         res = res.data.data[0]
-        setpackegeid(res.package)
+        console.log("topup",res[0].topup);
+        setpackegeid(res[0].topup)
 
     }
     const sm_nav_dnone = () => {
@@ -150,8 +151,13 @@ const Navbar = () => {
             })
         }
 
-        dashbord()
     }, [])
+
+    useEffect(() => {
+        dashbord()
+     
+    }, [])
+    
     return (
         <div className=''>
             <div className='col-13'>
@@ -161,7 +167,7 @@ const Navbar = () => {
                             <div class="topbar justify-content-center mb-2">
                                 <nav class=" navtop">
                                     <div class="">
-                                        <img className='dash-img-ip' src={Logo} width="25%" style={{ paddingBottom: "10px"}} alt="logo icon" />
+                                        <img className='dash-img-ip' src={Logo} width="25%" style={{ paddingBottom: "10px" }} alt="logo icon" />
                                     </div>
 
                                     <div class="probileseix">
@@ -170,7 +176,7 @@ const Navbar = () => {
                                             <span style={{ color: 'white' }} className="me-1"> ID:-</span>
                                             {/* <img src="assets3/images/id_green.png" class=""/> */}
                                             {
-                                                packegeid > 0 ?
+                                                packegeid ==1?
                                                     <>
                                                         <img src={id_green} width="13%" />
                                                     </> :
@@ -183,16 +189,16 @@ const Navbar = () => {
                                             <span style={{ color: 'white' }}>{uId}</span>
                                         </h6>
                                         {/* &nbsp;&nbsp;&nbsp;&nbsp;<a href="#"> */}
-                                           
-                                            {/* <li style={{listStyleType:"none;"}}> */}
-                                    {/* <div>
+
+                                        {/* <li style={{listStyleType:"none;"}}> */}
+                                        {/* <div>
                                         <button className='btn1  nav-btn-expand '> <img src={profile} width="40px" /></button>
                                         <div className='expand-nav  d-none flex-column' style={{ marginLeft: "-4%"}}>
                                             <Link onClick={onClick_DNone} to="/dashboard/Profile"><BsArrowRightShort /> Profile</Link>
                                             <Link onClick={onClick_DNone} to="/dashboard/Change_Password"><BsArrowRightShort /> Change Password </Link>
                                         </div>
                                     </div> */}
-                                {/* </li> */}
+                                        {/* </li> */}
                                         {/* </a> */}
 
                                     </div>
@@ -217,8 +223,12 @@ const Navbar = () => {
                                             <Link onClick={onClick_DNone} to="/dashboard/Mint"><BsArrowRightShort /> Mint NFT</Link>
                                             <Link onClick={onClick_DNone} to="/dashboard/Collection"><BsArrowRightShort /> Collection</Link>
                                             <Link onClick={onClick_DNone} to="/dashboard/Minting_History"><BsArrowRightShort /> Minting History&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/NFT_Staking"><BsArrowRightShort />NFT Staking</Link>
+
+                                            <Link onClick={onClick_DNone} to="/dashboard/withdrawal_Income"><BsArrowRightShort /> NFT Downline Tokens</Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/Team_Bonus"><BsArrowRightShort /> NFT Unstaking History</Link>
                                             {/* <Link onClick={onClick_DNone} to="/dashboard/NFTStaking"><BsArrowRightShort /> NFT Staking</Link> */}
-                                            <Link onClick={onClick_DNone} to="/dashboard/NFTHistory"><BsArrowRightShort /> NFT History </Link>
+                                            {/* <Link onClick={onClick_DNone} to="/dashboard/NFTHistory"><BsArrowRightShort /> NFT History </Link> */}
                                             {/* <Link onClick={onClick_DNone} to="/dashboard/Minting_History"><BsArrowRightShort /> NFT Withdrawal </Link> */}
                                         </div>
                                     </div>
@@ -227,11 +237,11 @@ const Navbar = () => {
                                     <div>
                                         <button className='btn1  nav-btn-expand '><MdOutlineGroup className="me-1 mb-1 fs-6 fs-5" /> Team Details</button>
                                         <div className='expand-nav  d-none flex-column'>
-                                            <Link onClick={onClick_DNone} to="/dashboard/My_Referral"><BsArrowRightShort /> My Referral &nbsp;&nbsp;&nbsp;&nbsp;</Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/My_Referral"><BsArrowRightShort /> My Referral </Link>
                                             <Link onClick={onClick_DNone} to="/dashboard/My_Team"><BsArrowRightShort /> My Team</Link>
                                             {/* <Link onClick={onClick_DNone} to="/dashboard/Matching_Tree"><BsArrowRightShort /> Matching Tree</Link> */}
-                                            <Link onClick={onClick_DNone} to="/dashboard/Level_Details"><BsArrowRightShort /> Level Details &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link>
-                                            <Link onClick={onClick_DNone} to="/dashboard/Direct_Leg_Business"><BsArrowRightShort /> Direct Level Business</Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/Level_Details"><BsArrowRightShort /> Level Details </Link>
+                                            {/* <Link onClick={onClick_DNone} to="/dashboard/Direct_Leg_Business"><BsArrowRightShort /> NFT Leg Business</Link> */}
                                         </div>
                                     </div>
                                 </li>
@@ -239,19 +249,13 @@ const Navbar = () => {
                                     <div>
                                         <button className='btn1  nav-btn-expand '> <BiLineChart className="me-1 mb-1 fs-6 fs-5" /> All Income</button>
                                         <div className='expand-nav  d-none flex-column'>
-                                            <Link onClick={onClick_DNone} to="/dashboard/Referral_Income"><BsArrowRightShort /> Today NFT </Link>
-                                            <Link onClick={onClick_DNone} to="/dashboard/Quick_Starter_Bonus"><BsArrowRightShort /> Today NFT Level </Link>
-                                            <Link onClick={onClick_DNone} to="/dashboard/Team_Bonus"><BsArrowRightShort /> Total NFT Income</Link>
-                                            <Link onClick={onClick_DNone} to="/dashboard/Matching_Level_Income"><BsArrowRightShort /> Total NFT Level Income</Link>
-                                            {/* <Link onClick={onClick_DNone} to="/dashboard/Sports_Bonus"><BsArrowRightShort /> Sports Bonus </Link>/ */}
-                                            <Link onClick={onClick_DNone} to="/dashboard/Withdrawal_Share_Bonus"><BsArrowRightShort /> Total NFT Reward Income </Link>
-
-
-
-
+                                            <Link onClick={onClick_DNone} to="/dashboard/Referral_Income"><BsArrowRightShort /> NFT ROS Income</Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/Matching_Level_Income"><BsArrowRightShort /> NFT ROS Level Income</Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/Withdrawal_Share_Bonus"><BsArrowRightShort /> NFT Reward Income </Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/Quick_Starter_Bonus"><BsArrowRightShort /> CTO Income 1 </Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/Sports_Bonus"><BsArrowRightShort /> CTO Income 2 </Link>
                                             {/* <Link onClick={onClick_DNone} to="/dashboard/Matching_Income"><BsArrowRightShort /> Matching Income</Link> */}
                                             {/* <Link onClick={onClick_DNone} to="/dashboard/Roi_Income"><BsArrowRightShort /> Roi Income</Link> */}
-                                            <Link onClick={onClick_DNone} to="/dashboard/withdrawal_Income"><BsArrowRightShort /> Total NFT Unit</Link>
                                         </div>
                                     </div>
                                 </li>
@@ -262,8 +266,7 @@ const Navbar = () => {
                                             {/* <Link  onClick={onClick_DNone} to="/dashboard/Buy_NFT"><BsArrowRightShort /> Buy NFT</Link>  */}
                                             <Link onClick={onClick_DNone} to="/dashboard/Withdrawal"><BsArrowRightShort /> NFT Withdrawal </Link>
                                             <Link onClick={onClick_DNone} to="/dashboard/Withdrawal_History"><BsArrowRightShort /> NFT Withdrawal History</Link>
-                                            {/* <Link onClick={onClick_DNone} to="/dashboard/Airdrop_Token"><BsArrowRightShort />Airdrop Token</Link>
-                                            <Link onClick={onClick_DNone} to="/dashboard/Airdrop_Token_History"><BsArrowRightShort />Airdrop Token History</Link> */}
+                                            {/* <Link onClick={onClick_DNone} to="/dashboard/Airdrop_Token_History"><BsArrowRightShort />Airdrop Token History</Link> */}
 
 
 
@@ -275,12 +278,12 @@ const Navbar = () => {
                                     <div>
                                         <button className='btn1  nav-btn-expand '><BiMessageSquareEdit className="me-1 mb-1 fs-6 fs-5" /> Address</button>
                                         <div className='expand-nav  d-none flex-column'>
-                                  
-                                            <Link onClick={onClick_DNone} to="/dashboard/Self_Address"><BsArrowRightShort /> Self Wallet</Link>
-                                        <Link onClick={onClick_DNone} to="/dashboard/Governance_Token_Address"><BsArrowRightShort /> Governance Token</Link>
-                                        <Link onClick={onClick_DNone} to="/dashboard/Coin_Address"><BsArrowRightShort /> In Game Reward Token </Link>
 
-                                        <Link onClick={onClick_DNone} to="/dashboard/NFT_Address"><BsArrowRightShort /> NFT</Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/Self_Address"><BsArrowRightShort /> Self Wallet</Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/Governance_Token_Address"><BsArrowRightShort /> Contract Address</Link>
+                                            {/* <Link onClick={onClick_DNone} to="/dashboard/Coin_Address"><BsArrowRightShort /> In Game Reward Token </Link> */}
+
+                                            <Link onClick={onClick_DNone} to="/dashboard/NFT_Address"><BsArrowRightShort /> NFT Address</Link>
                                             {/* <Link  onClick={onClick_DNone} to="/dashboard/Mint"><BsArrowRightShort /> Mint</Link>  */}
 
                                         </div>
@@ -290,7 +293,7 @@ const Navbar = () => {
                                     <button className='btn1 fs-5 fs-6' onClick={() => handleLogout()}><FaLock className="me-1 mb-1 fs-6 fs-5" /> Logout</button>
                                 </li>
                                 <li>
-                                {/* <TbAtom className="me-1 mb-1 fs-6 fs-4" /> Activation */}
+                                    {/* <TbAtom className="me-1 mb-1 fs-6 fs-4" /> Activation */}
                                     <div>
                                         <button className='btn1  nav-btn-expand '></button>
                                         <div className='expand-nav  d-none flex-column'>
@@ -307,7 +310,7 @@ const Navbar = () => {
                         <div class="d-flex w-100 mobile-view d-lg-none align-items-center bg_navtopSM justify-content-between">
                             {/* <img src={Logo} width="10%" alt="logo icon" style={{}} /> */}
                             <button class="navbar-toggler mobile-nav nav-btn col-md-1 col-2 me-3" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon" style={{ width: "100%"}}></span>
+                                <span class="navbar-toggler-icon" style={{ width: "100%" }}></span>
                             </button>
                         </div>
                     </div>
@@ -327,8 +330,13 @@ const Navbar = () => {
                                         <Link onClick={sm_nav_dnone} to="/dashboard/Mint"><BsArrowRightShort /> Mint NFT</Link>
                                         <Link onClick={onClick_DNone} to="/dashboard/Collection"><BsArrowRightShort /> Collection</Link>
                                         <Link onClick={sm_nav_dnone} to="/dashboard/Minting_History"><BsArrowRightShort /> Minting History</Link>
+                                        <Link onClick={sm_nav_dnone} to="/dashboard/NFT_Staking"><BsArrowRightShort />NFT Staking</Link>
+
+                                        <Link onClick={sm_nav_dnone} to="/dashboard/withdrawal_Income"><BsArrowRightShort /> NFT Downline Tokens</Link>
+                                        <Link onClick={sm_nav_dnone} to="/dashboard/Team_Bonus"><BsArrowRightShort /> NFT Unstaking History </Link>
+
                                         {/* <Link onClick={onClick_DNone} to="/dashboard/NFTStaking"><BsArrowRightShort /> NFT Staking</Link> */}
-                                        <Link onClick={sm_nav_dnone} to="/dashboard/NFTHistory"><BsArrowRightShort /> NFT History</Link>
+                                        {/* <Link onClick={sm_nav_dnone} to="/dashboard/NFTHistory"><BsArrowRightShort /> NFT History</Link> */}
                                         {/* <Link onClick={sm_nav_dnone} to="/dashboard/Minting_History"><BsArrowRightShort /> NFT Withdrawal</Link> */}
                                     </div>
                                 </div>
@@ -338,11 +346,11 @@ const Navbar = () => {
                                 <div>
                                     <button className='btn1 nav-btn-expand col-12 text-start fs-5' id='font-ip-nv'><MdOutlineGroup className="me-1 mb-1" /> Team Details</button>
                                     <div className='expand-nav-sm w-100 d-none flex-column'>
-                                    <Link onClick={sm_nav_dnone} to="/dashboard/My_Referral"><BsArrowRightShort /> My Referral</Link>
+                                        <Link onClick={sm_nav_dnone} to="/dashboard/My_Referral"><BsArrowRightShort /> My Referral</Link>
                                         <Link onClick={sm_nav_dnone} to="/dashboard/Matching_Income"><BsArrowRightShort /> My Team</Link>
                                         {/* <Link onClick={sm_nav_dnone} to="/dashboard/Matching_Tree"><BsArrowRightShort /> Matching Tree</Link> */}
                                         <Link onClick={sm_nav_dnone} to="/dashboard/Level_Details"><BsArrowRightShort /> Level Details</Link>
-                                        <Link onClick={sm_nav_dnone} to="/dashboard/Direct_Leg_Business"><BsArrowRightShort /> Direct Level Business</Link>
+                                        {/* <Link onClick={sm_nav_dnone} to="/dashboard/Direct_Leg_Business"><BsArrowRightShort /> Nft Leg Business</Link> */}
                                     </div>
                                 </div>
                             </li>
@@ -350,18 +358,14 @@ const Navbar = () => {
                                 <div>
                                     <button className='btn1 nav-btn-expand col-12 text-start fs-5' id='font-ip-nv'> <BiLineChart className="me-1 mb-1" /> All Income</button>
                                     <div className='expand-nav-sm w-100 d-none flex-column'>
-                                        <Link onClick={sm_nav_dnone} to="/dashboard/Referral_Income"><BsArrowRightShort /> Today NFT</Link>
-                                            <Link onClick={sm_nav_dnone} to="/dashboard/Team_Bonus"><BsArrowRightShort /> Today NFT Level </Link>
-                                        <Link onClick={sm_nav_dnone} to="/dashboard/Quick_Starter_Bonus"><BsArrowRightShort /> Total NFT Income </Link>
-                                        <Link onClick={sm_nav_dnone} to="/dashboard/Matching_Level_Income"><BsArrowRightShort /> Total NFT Level Income</Link>
-                                            {/* <Link onClick={sm_nav_dnone} to="/dashboard/Sports_Bonus"><BsArrowRightShort /> Sports Bonus </Link> */}
-                                            <Link onClick={sm_nav_dnone} to="/dashboard/Withdrawal_Share_Bonus"><BsArrowRightShort /> Total NFT Reward Income </Link>
+                                        <Link onClick={sm_nav_dnone} to="/dashboard/Referral_Income"><BsArrowRightShort /> NFT ROS Income</Link>
+                                        <Link onClick={sm_nav_dnone} to="/dashboard/Quick_Starter_Bonus"><BsArrowRightShort /> CTO Income 1</Link>
+                                        <Link onClick={sm_nav_dnone} to="/dashboard/Sports_Bonus"><BsArrowRightShort /> CTO Income 2 </Link>
 
-
-
+                                        <Link onClick={sm_nav_dnone} to="/dashboard/Matching_Level_Income"><BsArrowRightShort /> NFT ROS Level Income</Link>
+                                        <Link onClick={sm_nav_dnone} to="/dashboard/Withdrawal_Share_Bonus"><BsArrowRightShort /> NFT Reward Income </Link>
                                         {/* <Link onClick={sm_nav_dnone} to="/dashboard/Matching_Income"><BsArrowRightShort /> Matching Income</Link> */}
                                         {/* <Link onClick={sm_nav_dnone} to="/dashboard/Roi_Income"><BsArrowRightShort /> Roi Income</Link> */}
-                                        <Link onClick={sm_nav_dnone} to="/dashboard/withdrawal_Income"><BsArrowRightShort /> Total NFT Unit</Link>
                                     </div>
                                 </div>
                             </li>
@@ -370,12 +374,11 @@ const Navbar = () => {
                                     <button className='btn1 nav-btn-expand col-12 text-start fs-5' id='font-ip-nv'><BiBook className="me-1 mb-1" /> Withdrawal</button>
                                     <div className='expand-nav-sm w-100 d-none flex-column'>
                                         {/* <Link  onClick={sm_nav_dnone} to="/dashboard/Buy_NFT"><BsArrowRightShort /> Buy NFT</Link> */}
-                                        
+
 
                                         <Link onClick={sm_nav_dnone} to="/dashboard/Withdrawal"><BsArrowRightShort /> NFT Withdrawal </Link>
-                                            <Link onClick={sm_nav_dnone} to="/dashboard/Withdrawal_History"><BsArrowRightShort />  NFT Withdrawal History</Link>
-                                            {/* <Link onClick={sm_nav_dnone} to="/dashboard/Airdrop_Token"><BsArrowRightShort />Airdrop Token</Link>
-                                            <Link onClick={sm_nav_dnone} to="/dashboard/Airdrop_Token_History"><BsArrowRightShort />Airdrop Token History</Link> */}
+                                        <Link onClick={sm_nav_dnone} to="/dashboard/Withdrawal_History"><BsArrowRightShort />  NFT Withdrawal History</Link>
+                                            {/* <Link onClick={sm_nav_dnone} to="/dashboard/Airdrop_Token_History"><BsArrowRightShort />Airdrop Token History</Link> */}
                                     </div>
                                 </div>
                             </li>
@@ -385,8 +388,8 @@ const Navbar = () => {
                                     <button className='btn1 nav-btn-expand col-12 text-start fs-5' id='font-ip-nv'><BiMessageSquareEdit className="me-1 mb-1" /> Address</button>
                                     <div className='expand-nav-sm w-100 d-none flex-column'>
                                         <Link onClick={sm_nav_dnone} to="/dashboard/Self_Address"><BsArrowRightShort /> Self</Link>
-                                        <Link onClick={sm_nav_dnone} to="/dashboard/Governance_Token_Address"><BsArrowRightShort /> Governance Token</Link>
-                                        <Link onClick={sm_nav_dnone} to="/dashboard/Coin_Address"><BsArrowRightShort /> In Game Reward Token </Link>
+                                        {/* <Link onClick={sm_nav_dnone} to="/dashboard/Governance_Token_Address"><BsArrowRightShort /> Governance Token</Link> */}
+                                        <Link onClick={sm_nav_dnone} to="/dashboard/Coin_Address"><BsArrowRightShort /> Contract </Link>
 
                                         <Link onClick={sm_nav_dnone} to="/dashboard/NFT_Address"><BsArrowRightShort /> NFT</Link>
                                         {/* <Link  onClick={sm_nav_dnone} to="/dashboard/Mint"><BsArrowRightShort /> Mint</Link> */}
@@ -398,7 +401,7 @@ const Navbar = () => {
                                 <button className='btn1 col-12 text-start fs-5 ' id='font-ip-nv' onClick={() => handleLogout()}><FaLock className="me-1 mb-1" /> Logout</button>
                             </li>
                             {/* <TbAtom className="me-1 mb-1" /> Activation */}
-                            <li class="col-xl-10 col-10 border_bottom" style={{display:'none'}}>
+                            <li class="col-xl-10 col-10 border_bottom" style={{ display: 'none' }}>
                                 <div>
                                     <button className='btn1 nav-btn-expand col-12 text-start fs-5'></button>
                                     <div className='expand-nav-sm w-100 d-none flex-column'>
@@ -410,10 +413,10 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </li>
-                           
-                            
-                            
-                            
+
+
+
+
                         </ul>
                     </div>
                 </nav>
@@ -444,7 +447,7 @@ const Navbar = () => {
                 <Route path='/dashboard/Change_Password' element={<Change_Password />} />
                 <Route path='/dashboard/Mint' element={<Mint />} />
                 <Route path='/dashboard/NFTHistory' element={<NFTHistory />} />
-              
+
                 <Route path='/dashboard/Collection' element={<Collection />} />
                 <Route path='/dashboard/Forgat_Password' element={<Forgat_Password />} />
                 <Route path='/dashboard/ChangePasswor_eamil' element={<ChangePasswor_eamil />} />
@@ -460,6 +463,8 @@ const Navbar = () => {
                 <Route path='/dashboard/Airdrop_Token' element={<Airdrop_Token />} />
                 <Route path='/dashboard/Airdrop_Token_History' element={<Airdrop_Token_History />} />
                 <Route path='/dashboard/Governance_Token_Address' element={<Governance_Token_Address />} />
+                <Route path='/dashboard/NFT_Staking' element={<NFT_Staking />} />
+
 
 
 

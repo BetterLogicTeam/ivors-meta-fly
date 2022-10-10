@@ -6,7 +6,7 @@ import Confirm from './Confirm';
 import './Login-main.css'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import { Spinner } from './Spinner';
+import Spinner  from './Spinner/Spinner';
 import { toast } from 'react-toastify';
 var bol = false;
 function Login_main({ notify }) {
@@ -16,13 +16,13 @@ function Login_main({ notify }) {
   const [openLogin ,setOpenLogin]= useState(false);
   const [address, setaddress] = useState('');
   const [connected, setconnected] = useState('MetaMask is not connected..!..Wait...')
-
+  
   const callapi = async () => {
     setloader(true)
 
     if(uid.length>6){
-      console.log("logindata_Address",)
-
+      console.log("logindata_Address",);
+      console.log("logindata_AddressValue", uid);
       let res = await axios.get(`https://nftworld-api.herokuapp.com/login?id='${uid}'`);
       console.log("logindata",res.data.data)
       if (res.data.data !== 0) {
@@ -30,7 +30,9 @@ function Login_main({ notify }) {
         toast.success('Login Successfully')
         localStorage.setItem("isAuthenticated", true);
         localStorage.setItem("user", JSON.stringify(res.data.data));
-        navigate('/Dashboard/Home')
+
+        console.log("Loginuser-->",localStorage.getItem('user'));
+        navigate('/dashboard')
       }else{
         toast.error("Something went wrong ! ");
   
@@ -38,12 +40,14 @@ function Login_main({ notify }) {
     }else{
       let res = await axios.get(`https://nftworld-api.herokuapp.com/login?id=${uid}`);
       console.log("logindata",res.data.data)
-      if (res.data.data == 0) {
+      if (res.data.data !== 0) {
        
         toast.success('Login Successfully')
         localStorage.setItem("isAuthenticated", true);
         localStorage.setItem("user", JSON.stringify(res.data.data));
-        navigate('/Dashboard/Home')
+
+        console.log("LoginuserUID-->",localStorage.getItem('user'));
+        navigate('/dashboard')
       }else{
         toast.error("Something went wrong ! ");
   
@@ -55,7 +59,7 @@ function Login_main({ notify }) {
 
   const ConnectToMetaMask = async () => {
 
-    setloader(true)
+    // setloader(true)
 
     let acc = await loadWeb3();
   
@@ -68,22 +72,28 @@ function Login_main({ notify }) {
     else {
       //   notify("Wallet Connected");
       setuid(acc)
-
       setaddress(acc)
+      // connectedAddress = acc;
       setconnected('MetaMask is connected... Ready To Go')
+      
+      callapi()
+      // handleLogin(true)
+      // setOpenLogin(true)
     }
-    setloader(false)
+    // setloader(false)
 
   }
 
   useEffect(() => {
+    ConnectToMetaMask();
     console.log("what is input value", uid)
 
   }, [uid])
   return (
     <div className='row m-0 justify-content-center align-items-center' style={{height:'100vh'}}>
       {openLogin && <Confirm handleLogin={callapi} setRegistered={setOpenLogin} />}
-            {/* { loader == true ?   <></>} */}
+      {/* {openLogin && <Confirm handleLogin={callapi} setRegistered={setOpenLogin} />} */}
+            { loader == true ? <Spinner /> : <></>}
             <div className=' col-md-4 col-lg-3 bg-white  mainForm'>
             <div className="main_form  ">
             <a class="main-logo" href="/"><img src="assets2/images/logo.png" alt="" /></a>
@@ -112,9 +122,17 @@ function Login_main({ notify }) {
                   <button className="btn log_batan log-ip-btn" onClick={() => {
                     navigate('/')
                   }}>Go To Home</button>
-                  <p class="reg-footnote">
+                  {/* <p class="reg-footnote">
                         Don’t have an account?
-                    </p>
+                    </p> */}
+                    <p class="loginagain">Don’t have an account? <a href="/Register_main" style={{ color: "white" }}>Register</a></p>
+                    {/* <button
+                className="btn log_batan"
+                onClick={() => {
+                  navigate('/Register_main')
+                }}>
+                Register
+              </button> */}
                     <div class="footer-section2">
                         Copyright © 2022 ivorsemetafly.io . All Rights Reserved.&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;<a href="#" rel="noopener noreferrer" title="BNB Smart Contract" style={{color:"#fff"}}>BNB Smart Contract</a>
                     </div>

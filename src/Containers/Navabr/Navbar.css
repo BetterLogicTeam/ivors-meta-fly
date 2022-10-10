@@ -231,3 +231,12 @@ font-size: 3rem;
 }
 
 }
+
+.navbar-toggler {
+    padding: 1.25rem !important;
+
+    line-height: 1;
+ 
+    background-color: #cdcdcd !important;
+   
+}

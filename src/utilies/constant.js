@@ -1,37 +1,13 @@
 //   Mint with 100
-export const GLABA_NFT = "0x9C745c6Df1de64a022800f4A675c62e3799b3adb";
+export const GLABA_NFT = "0x962760637B700bd2F2a172C449AA82613b89CeAC";
 export const GLABA_NFT_ABI = [{
     "inputs": [{
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-    }, {
-        "internalType": "string",
-        "name": "_symbol",
-        "type": "string"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_Token",
-        "type": "address"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_BUSD",
-        "type": "address"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_Token1",
-        "type": "address"
-    }, {
         "internalType": "contract IPancakePair",
-        "name": "_bnbtobusd",
+        "name": "BUSDBNB_",
         "type": "address"
     }, {
-        "internalType": "contract IPancakePair",
-        "name": "_Tokentobnblp",
-        "type": "address"
-    }, {
-        "internalType": "contract IPancakePair",
-        "name": "_Tokentobnblp1",
+        "internalType": "contract IERC20",
+        "name": "BUSD_",
         "type": "address"
     }],
     "stateMutability": "nonpayable",
@@ -94,6 +70,16 @@ export const GLABA_NFT_ABI = [{
 }, {
     "anonymous": false,
     "inputs": [{
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+    }],
+    "name": "Paused",
+    "type": "event"
+}, {
+    "anonymous": false,
+    "inputs": [{
         "indexed": true,
         "internalType": "address",
         "name": "from",
@@ -112,10 +98,20 @@ export const GLABA_NFT_ABI = [{
     "name": "Transfer",
     "type": "event"
 }, {
+    "anonymous": false,
+    "inputs": [{
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+    }],
+    "name": "Unpaused",
+    "type": "event"
+}, {
     "inputs": [],
     "name": "BUSD",
     "outputs": [{
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "",
         "type": "address"
     }],
@@ -123,187 +119,7 @@ export const GLABA_NFT_ABI = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "BUSDtobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BnbtoBusd",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "Claimtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MinitngPrice_with_single",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MinitngPricein_token1",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetMinitngPrice_with_single",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetMinitngPricein_token1",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_BUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMintingPricein_BNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Token",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Token1",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Token1tobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Token1tobnblp",
+    "name": "BUSDBNB",
     "outputs": [{
         "internalType": "contract IPancakePair",
         "name": "",
@@ -312,8 +128,36 @@ export const GLABA_NFT_ABI = [{
     "stateMutability": "view",
     "type": "function"
 }, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_poolid",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }],
+    "name": "MintwithBNB",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_poolid",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }],
+    "name": "MintwithBUSD",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
     "inputs": [],
-    "name": "Tokentobnb",
+    "name": "OneDollarBNB",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -323,95 +167,91 @@ export const GLABA_NFT_ABI = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "Tokentobnblp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
+    "name": "Pause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
-    "inputs": [],
-    "name": "ValueinToken",
-    "outputs": [{
+    "inputs": [{
         "internalType": "uint256",
         "name": "",
+        "type": "uint256"
+    }],
+    "name": "Pool",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "maxSupply",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "BUSDprice",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "mintedNfts",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "initialSupply",
         "type": "uint256"
     }],
     "stateMutability": "view",
     "type": "function"
 }, {
-    "inputs": [],
-    "name": "ValueinToken1",
-    "outputs": [{
+    "inputs": [{
         "internalType": "uint256",
-        "name": "",
+        "name": "_poolId",
         "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "_maxSupply",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "_BUSDprice",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "_poolStart",
+        "type": "uint256"
+    }],
+    "name": "SetPool",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "URIextension",
+    "outputs": [{
+        "internalType": "string",
+        "name": "",
+        "type": "string"
     }],
     "stateMutability": "view",
     "type": "function"
 }, {
     "inputs": [],
-    "name": "ValueinToken_single",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_BUSD",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMintingPricein_BNB",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Whitelist_MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
+    "name": "UnPause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
         "internalType": "address",
-        "name": "",
+        "name": "_Token",
         "type": "address"
     }],
-    "name": "addressMintedBalance",
+    "name": "WithdrawToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "_paused",
     "outputs": [{
-        "internalType": "uint256",
+        "internalType": "bool",
         "name": "",
-        "type": "uint256"
+        "type": "bool"
     }],
     "stateMutability": "view",
     "type": "function"
@@ -444,60 +284,6 @@ export const GLABA_NFT_ABI = [{
     "stateMutability": "view",
     "type": "function"
 }, {
-    "inputs": [],
-    "name": "baseURI",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbbusdlp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbtoToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbtoToken1",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "excludefromlimits",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
     "inputs": [{
         "internalType": "uint256",
         "name": "tokenId",
@@ -508,20 +294,6 @@ export const GLABA_NFT_ABI = [{
         "internalType": "address",
         "name": "",
         "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "name": "initialMintTime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
     }],
     "stateMutability": "view",
     "type": "function"
@@ -544,136 +316,12 @@ export const GLABA_NFT_ABI = [{
     "stateMutability": "view",
     "type": "function"
 }, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "iswhitelist",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "lastsend",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "liveprice",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "maxsupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_count",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }],
-    "name": "mint_with_single",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_count",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount1",
-        "type": "uint256"
-    }],
-    "name": "mint_with_token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "mintedNFTs",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
     "inputs": [],
     "name": "name",
     "outputs": [{
         "internalType": "string",
         "name": "",
         "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "notRevealedUri",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "one$toToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "one$toToken1",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
     }],
     "stateMutability": "view",
     "type": "function"
@@ -713,17 +361,41 @@ export const GLABA_NFT_ABI = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "pausedminting",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "name": "prefix100",
+    "outputs": [{
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+    }],
+    "stateMutability": "view",
     "type": "function"
 }, {
     "inputs": [],
-    "name": "pricetime",
+    "name": "prefix1000",
     "outputs": [{
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "",
-        "type": "uint256"
+        "type": "string"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "prefix2500",
+    "outputs": [{
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "prefix500",
+    "outputs": [{
+        "internalType": "string",
+        "name": "",
+        "type": "string"
     }],
     "stateMutability": "view",
     "type": "function"
@@ -732,22 +404,6 @@ export const GLABA_NFT_ABI = [{
     "name": "renounceOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "reveal",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "revealed",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
     "type": "function"
 }, {
     "inputs": [{
@@ -782,7 +438,7 @@ export const GLABA_NFT_ABI = [{
         "type": "uint256"
     }, {
         "internalType": "bytes",
-        "name": "_data",
+        "name": "data",
         "type": "bytes"
     }],
     "name": "safeTransferFrom",
@@ -806,190 +462,34 @@ export const GLABA_NFT_ABI = [{
 }, {
     "inputs": [{
         "internalType": "string",
-        "name": "_newBaseURI",
+        "name": "prefix100_",
         "type": "string"
-    }],
-    "name": "setBaseURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setDisablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxSupply",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_notRevealedURI",
-        "type": "string"
-    }],
-    "name": "setNotRevealedURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "setRevealed",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-    }],
-    "name": "setToken1price",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-    }],
-    "name": "setTokenprice",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "setWhitelist_MaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-    }],
-    "name": "set_ValueinToken_single_price",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newbaseExtension",
-        "type": "string"
-    }],
-    "name": "setbaseExtension",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setenablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }],
-    "name": "setexcludefromlimits",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_newdays",
-        "type": "uint256"
-    }],
-    "name": "setlimit",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepricedisenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepriceenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newnotRevealedUri",
-        "type": "string"
-    }],
-    "name": "setnotRevealedUri",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_stakingcontract",
-        "type": "address"
-    }],
-    "name": "setstaking",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
     }, {
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
+        "internalType": "string",
+        "name": "prefix500_",
+        "type": "string"
+    }, {
+        "internalType": "string",
+        "name": "prefix1000_",
+        "type": "string"
+    }, {
+        "internalType": "string",
+        "name": "prefix2500_",
+        "type": "string"
     }],
-    "name": "setwhitelist",
+    "name": "setPREFIXTokenURI",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
-    "inputs": [],
-    "name": "staking",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+    "inputs": [{
+        "internalType": "string",
+        "name": "URIextension_",
+        "type": "string"
     }],
-    "stateMutability": "view",
+    "name": "setURIextension",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
@@ -1050,7 +550,7 @@ export const GLABA_NFT_ABI = [{
 }, {
     "inputs": [{
         "internalType": "uint256",
-        "name": "_tokenId",
+        "name": "tokenId",
         "type": "uint256"
     }],
     "name": "tokenURI",
@@ -1058,16 +558,6 @@ export const GLABA_NFT_ABI = [{
         "internalType": "string",
         "name": "",
         "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "tokenmint",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
     }],
     "stateMutability": "view",
     "type": "function"
@@ -1110,12 +600,6 @@ export const GLABA_NFT_ABI = [{
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
-    "inputs": [],
-    "name": "unpaused",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
     "inputs": [{
         "internalType": "address",
         "name": "_owner",
@@ -1132,44 +616,10 @@ export const GLABA_NFT_ABI = [{
 }, {
     "inputs": [{
         "internalType": "uint256",
-        "name": "_amount",
+        "name": "amount",
         "type": "uint256"
     }],
-    "name": "withdraw",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawBUSDtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawothertoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawtoken",
+    "name": "withdrawBNB",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -5903,9 +5353,10 @@ export const GLABA_NFT_ABI_5000 = [{
 
 // Token Addresses------------------------------------------------------------------------------
 
-export const LaRace_Governance_Token = "0x052775Cf897b3eC894F26b8d801C514123c305D1";
+export const LaRace_Governance_Token = "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56";
 export const LaRace_Governance_Token_ABI = [{
     "inputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "constructor"
 }, {
@@ -5931,27 +5382,17 @@ export const LaRace_Governance_Token_ABI = [{
 }, {
     "anonymous": false,
     "inputs": [{
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "total",
-        "type": "uint256"
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
     }, {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
-        "name": "tokenAddress",
+        "name": "newOwner",
         "type": "address"
     }],
-    "name": "Multisended",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": false,
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-    }],
-    "name": "Paused",
+    "name": "OwnershipTransferred",
     "type": "event"
 }, {
     "anonymous": false,
@@ -5974,193 +5415,46 @@ export const LaRace_Governance_Token_ABI = [{
     "name": "Transfer",
     "type": "event"
 }, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": false,
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-    }],
-    "name": "Unpaused",
-    "type": "event"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "ExcludefromLimits",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "_balances",
+    "constant": true,
+    "inputs": [],
+    "name": "_decimals",
     "outputs": [{
-        "internalType": "uint256",
+        "internalType": "uint8",
         "name": "",
-        "type": "uint256"
+        "type": "uint8"
     }],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
 }, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "_firstBuytime",
+    "constant": true,
+    "inputs": [],
+    "name": "_name",
     "outputs": [{
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "",
-        "type": "uint256"
+        "type": "string"
     }],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
 }, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "_firstReceivetime",
+    "constant": true,
+    "inputs": [],
+    "name": "_symbol",
     "outputs": [{
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "",
-        "type": "uint256"
+        "type": "string"
     }],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
 }, {
+    "constant": true,
     "inputs": [{
         "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "_firstSelltime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "_firstTransfer",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "_isExcluded",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "_totTransfers",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "_totalAmountBuy",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "_totalAmountSell",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "_totalAmountreceive",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_pair",
-        "type": "address"
-    }],
-    "name": "addpairaddress",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }],
-    "name": "addtoblacklist",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_owner",
+        "name": "owner",
         "type": "address"
     }, {
         "internalType": "address",
@@ -6173,9 +5467,11 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "uint256"
     }],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
 }, {
+    "constant": false,
     "inputs": [{
         "internalType": "address",
         "name": "spender",
@@ -6191,9 +5487,11 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "bool"
     }],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
+    "constant": true,
     "inputs": [{
         "internalType": "address",
         "name": "account",
@@ -6205,43 +5503,27 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "uint256"
     }],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
 }, {
+    "constant": false,
     "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
     }],
-    "name": "blacklist",
+    "name": "burn",
     "outputs": [{
         "internalType": "bool",
         "name": "",
         "type": "bool"
     }],
-    "stateMutability": "view",
+    "payable": false,
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
-    "inputs": [],
-    "name": "buy",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "buying",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
+    "constant": true,
     "inputs": [],
     "name": "decimals",
     "outputs": [{
@@ -6249,9 +5531,11 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "uint8"
     }],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
 }, {
+    "constant": false,
     "inputs": [{
         "internalType": "address",
         "name": "spender",
@@ -6267,19 +5551,23 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "bool"
     }],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
+    "constant": true,
+    "inputs": [],
+    "name": "getOwner",
+    "outputs": [{
+        "internalType": "address",
+        "name": "",
+        "type": "address"
     }],
-    "name": "getTokens",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "payable": false,
+    "stateMutability": "view",
     "type": "function"
 }, {
+    "constant": false,
     "inputs": [{
         "internalType": "address",
         "name": "spender",
@@ -6295,83 +5583,27 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "bool"
     }],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
-    "inputs": [],
-    "name": "locktime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "maxMultisendPday",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "maxTrPerDay",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "maxbuyamount",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "maxsellamount",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
+    "constant": false,
     "inputs": [{
-        "internalType": "address[]",
-        "name": "_contributors",
-        "type": "address[]"
-    }, {
-        "internalType": "uint256[]",
-        "name": "__balances",
-        "type": "uint256[]"
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
     }],
-    "name": "multisendToken",
-    "outputs": [],
+    "name": "mint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
-    "inputs": [],
-    "name": "multisendaccount",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
+    "constant": true,
     "inputs": [],
     "name": "name",
     "outputs": [{
@@ -6379,9 +5611,11 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "string"
     }],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
 }, {
+    "constant": true,
     "inputs": [],
     "name": "owner",
     "outputs": [{
@@ -6389,147 +5623,19 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "address"
     }],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
 }, {
+    "constant": false,
     "inputs": [],
-    "name": "pancakePair",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pauseContract",
+    "name": "renounceOwnership",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
-    "inputs": [],
-    "name": "paused",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_address",
-        "type": "address"
-    }],
-    "name": "register",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "pure",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }],
-    "name": "removefromblacklist",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_token",
-        "type": "uint256"
-    }],
-    "name": "sell",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "selling",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address payable[]",
-        "name": "_contributors",
-        "type": "address[]"
-    }, {
-        "internalType": "uint256[]",
-        "name": "__balances",
-        "type": "uint256[]"
-    }],
-    "name": "sendMultiBnb",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setTransferperdaylimti",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setbuylimit",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setmaxMultisendPday",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setmaxsell",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }],
-    "name": "setmultisendaccount",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
+    "constant": true,
     "inputs": [],
     "name": "symbol",
     "outputs": [{
@@ -6537,9 +5643,11 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "string"
     }],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
 }, {
+    "constant": true,
     "inputs": [],
     "name": "totalSupply",
     "outputs": [{
@@ -6547,9 +5655,11 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "uint256"
     }],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
 }, {
+    "constant": false,
     "inputs": [{
         "internalType": "address",
         "name": "recipient",
@@ -6565,9 +5675,11 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "bool"
     }],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
+    "constant": false,
     "inputs": [{
         "internalType": "address",
         "name": "sender",
@@ -6587,32 +5699,19 @@ export const LaRace_Governance_Token_ABI = [{
         "name": "",
         "type": "bool"
     }],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
+    "constant": false,
     "inputs": [{
         "internalType": "address",
-        "name": "_newonwer",
+        "name": "newOwner",
         "type": "address"
     }],
-    "name": "transferownership",
+    "name": "transferOwnership",
     "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "unpauseContract",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withDraw",
-    "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
 }]
@@ -6987,4 +6086,220 @@ export const WIRE_Token_ABI = [{
     }],
     "name": "OwnershipTransferred",
     "type": "event"
+}]
+
+
+
+export const staking_contract = "0xc9645C7e666D433191E522c009e7E54B07C86E05";
+export const staking_contract_Abi = [{
+    "anonymous": false,
+    "inputs": [{
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+    }, {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+    }],
+    "name": "OwnershipTransferred",
+    "type": "event"
+}, {
+    "inputs": [{
+        "internalType": "uint256[]",
+        "name": "tokenId",
+        "type": "uint256[]"
+    }, {
+        "internalType": "address",
+        "name": "_nftAddress",
+        "type": "address"
+    }],
+    "name": "Stake",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+    }, {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+    }, {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "name": "Tokenid",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "address",
+        "name": "_Token",
+        "type": "address"
+    }],
+    "name": "WithdrawToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }, {
+        "internalType": "address",
+        "name": "_nftAddress",
+        "type": "address"
+    }],
+    "name": "find",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "address",
+        "name": "_stakeHolder",
+        "type": "address"
+    }, {
+        "internalType": "address",
+        "name": "_nftAddress",
+        "type": "address"
+    }],
+    "name": "isStaked",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "locked",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+    }, {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "name": "rewardedIDS",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+    }, {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+    }],
+    "name": "totalStakedNft",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+    }],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256[]",
+        "name": "_tokenId",
+        "type": "uint256[]"
+    }, {
+        "internalType": "address",
+        "name": "_nftAddress",
+        "type": "address"
+    }],
+    "name": "unStake",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "bool",
+        "name": "_locked",
+        "type": "bool"
+    }],
+    "name": "updateLocked",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "address",
+        "name": "_staker",
+        "type": "address"
+    }, {
+        "internalType": "address",
+        "name": "_nftAddress",
+        "type": "address"
+    }],
+    "name": "userStakedNFT",
+    "outputs": [{
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "withdrawBNB",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
 }]

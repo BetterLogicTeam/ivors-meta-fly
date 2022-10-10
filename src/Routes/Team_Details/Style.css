@@ -5,3 +5,18 @@
     background-color: rgb(17 23 151);
     color: white;
 }
+
+@media screen and (max-width:1000px) {
+
+    .ref-ip{
+        font-size: 30px !important;
+        width: 29% !important;
+    }
+
+    .ref-ip1{
+        font-size: 30px !important;
+    }
+
+   
+    
+    }

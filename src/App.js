@@ -44,11 +44,12 @@ import Airdrop_Token_History from './Routes/History/Airdrop_Token_History';
 import Governance_Token_Address from './Routes/Address/Governance_Token_Address';
 import Collection from './Components/Mint/Collection';
 import NFTHistory from './Components/Mint/NFT History';
+import NFT_Staking from './Components/Staking/NFT_Staking';
 
-let dataearn = 0
+let dataearn=0
 function App() {
   const [userAddress, setuserAddress] = useState();
-  console.log("userAddress", userAddress);
+  console.log("userAddress",userAddress);
   // const isAuthenticated = localStorage.getItem("isAuthenticated");
 
   return (
@@ -56,7 +57,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
 
-        <ToastContainer />
+      <ToastContainer />
 
         <Routes>
           <Route exact path="/" element={<Index_main />} />
@@ -67,15 +68,15 @@ function App() {
           <Route path="Contact_main" element={<Contact_main />} />
           <Route path="Login_main" element={<Login_main />} />
           <Route path="Register_main" element={<Register_main />} />
-          <Route path="wellComePage/:email" element={<WellComePage />} />
-          <Route path="Wallet_Address_change" element={<Wallet_Address_change />} />
+          <Route path="wellComePage/:email" element={<WellComePage  />} />
+          <Route path="Wallet_Address_change" element={<Wallet_Address_change  />} />
           <Route path='Forgat_Password' element={<Forgat_Password />} />
           <Route path='Forget_Password_Result' element={<Get_Password_result />} />
 
-          <Route path='OTP/:email' element={<OTP />} />
-          <Route path='Varify_forget_Password/:email' element={<Varify_forget_Password />} />
+          <Route path='OTP/:email' element={<OTP/>} />
+          <Route path='Varify_forget_Password/:email' element={<Varify_forget_Password  />} />
 
-
+          
 
 
 
@@ -83,9 +84,9 @@ function App() {
           <Route exact path="/Mint" element={<Mint />} />
           <Route exact path="/Collection" element={<Collection />} />
 
-          <Route path="/dashboard" element={< Protected Components={Navbar} />} >
-
-            <Route path='/dashboard/Home' element={<Home />} />
+          <Route path="/dashboard" element={  < Protected  Components={Navbar}  />} >
+          
+            <Route path='/dashboard/Home' element={<Home/>} />
             <Route path='/dashboard/Activate_History' element={<Activate_History />} />
             <Route path='/dashboard/Staking_Details' element={<Staking_Details />} />
             <Route path='/dashboard/Profile' element={<Profile />} />
@@ -100,19 +101,20 @@ function App() {
 
 
             <Route path='/dashboard/Referral_Income' element={<Referral_Income />} />
-            <Route path='/dashboard/Matching_Income' element={<Matching_Income />} />
-            <Route path='/dashboard/withdrawal_Income' element={<Reward_Income />} />
-            <Route path='/dashboard/Roi_Income' element={<Roi_Income />} />
-            <Route path='/dashboard/Matching_Level_Income' element={<Matching_Level_Income />} />
-            <Route path='/dashboard/Buy_NFT' element={<Buy_NFT />} />
-            <Route path='/dashboard/Withdrawal_History' element={<Withdrawal_History />} />
-            <Route path='/dashboard/Withdrawal' element={<Withdrawal />} />
-            <Route path='/dashboard/Quick_Starter_Bonus' element={<Quick_Starter_Bonus />} />
-            <Route path='/dashboard/Team_Bonus' element={<Team_Bonus />} />
-            <Route path='/dashboard/Sports_Bonus' element={<Sports_Bonus />} />
-            <Route path='/dashboard/Withdrawal_Share_Bonus' element={<Withdrawal_Share_Bonus />} />
-            <Route path='/dashboard/Airdrop_Token' element={<Airdrop_Token />} />
-            <Route path='/dashboard/Airdrop_Token_History' element={<Airdrop_Token_History />} />
+                <Route path='/dashboard/Matching_Income' element={<Matching_Income />} />
+                <Route path='/dashboard/withdrawal_Income' element={<Reward_Income />} />
+                <Route path='/dashboard/Roi_Income' element={<Roi_Income />} />
+                <Route path='/dashboard/Matching_Level_Income' element={<Matching_Level_Income />} />
+                <Route path='/dashboard/Buy_NFT' element={<Buy_NFT />} />
+                <Route path='/dashboard/Withdrawal_History' element={<Withdrawal_History />} />
+                <Route path='/dashboard/Withdrawal' element={<Withdrawal />} />
+                <Route path='/dashboard/Quick_Starter_Bonus' element={<Quick_Starter_Bonus />} />
+                <Route path='/dashboard/Team_Bonus' element={<Team_Bonus />} />
+                <Route path='/dashboard/Sports_Bonus' element={<Sports_Bonus />} />
+                <Route path='/dashboard/Withdrawal_Share_Bonus' element={<Withdrawal_Share_Bonus />} />
+                <Route path='/dashboard/Airdrop_Token' element={<Airdrop_Token />} />
+                <Route path='/dashboard/Airdrop_Token_History' element={<Airdrop_Token_History />} />
+                <Route path='/dashboard/NFT_Staking' element={<NFT_Staking />} />
 
 
 
@@ -120,22 +122,28 @@ function App() {
 
 
 
-            <Route path='/dashboard/Direct_Leg_Business' element={<Direct_Leg_Business />} />
-            <Route path='/dashboard/Level_Details' element={<Level_Details />} />
-            <Route path='/dashboard/Matching_Tree' element={<Matching_Tree />} />
-            <Route path='/dashboard/My_Referral' element={<My_Referral />} />
-            <Route path='/dashboard/My_Team' element={<My_Team />} />
-            <Route path='/dashboard/Coin_Address' element={<Coin_Address />} />
-            <Route path='/dashboard/NFT_Address' element={<NFT_Address />} />
-            <Route path='/dashboard/Governance_Token_Address' element={<Governance_Token_Address />} />
 
-            <Route path='/dashboard/Self_Address' element={<Self_Address userAddress={userAddress} />} />
-            <Route path='/dashboard/Mint' element={<Mint />} />
-            <Route exact path="/dashboard/Collection" element={<Collection />} />
-            <Route path='/dashboard/Minting_History' element={<Minting_History />} />
-            <Route path='/dashboard/NFTHistory' element={<NFTHistory />} />
-            {/* <Footer/> */}
+                <Route path='/dashboard/Direct_Leg_Business' element={<Direct_Leg_Business />} />
+                <Route path='/dashboard/Level_Details' element={<Level_Details />} />
+                <Route path='/dashboard/Matching_Tree' element={<Matching_Tree />} />
+                <Route path='/dashboard/My_Referral' element={<My_Referral />} />
+                <Route path='/dashboard/My_Team' element={<My_Team />} />
+                <Route path='/dashboard/Coin_Address' element={<Coin_Address />} />
+                <Route path='/dashboard/NFT_Address' element={<NFT_Address />} />
+                <Route path='/dashboard/Governance_Token_Address' element={<Governance_Token_Address />} />
 
+                <Route path='/dashboard/Self_Address' element={<Self_Address userAddress={userAddress} />} />
+                <Route path='/dashboard/Mint' element={<Mint  />} />
+                <Route exact path="/dashboard/Collection" element={<Collection />} />
+                <Route path='/dashboard/Minting_History' element={<Minting_History  />} />
+                <Route path='/dashboard/NFTHistory' element={<NFTHistory  />} />
+                {/* <Footer/> */}
+
+         
+
+
+
+         
           </Route>
 
 

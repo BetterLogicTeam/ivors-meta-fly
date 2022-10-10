@@ -71,7 +71,7 @@ const Matching_Income = () => {
             { Header: 'Matching Business', accessor: 'matching_business' },
             { Header: 'Capping Amount', accessor: 'capping_amount' },
             { Header: 'Net Income', accessor: 'net_income' },
-            { Header: 'Date', accessor: 'date' }],
+            { Header: 'Date & Time', accessor: 'date' }],
         rows: [
             { sr: '1', matching_business: '300 Wire', capping_amount: '24.0000000000086 Wire', net_income: '0.0000 Wire', date: '5/24/2022 3:22:19 PM' },
             { sr: '2', matching_business: '200 Wire', capping_amount: '24.0000000000086 Wire', net_income: '0.0000 Wire', date: '5/24/2022 3:22:19 PM' },

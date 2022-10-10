@@ -14,8 +14,10 @@ import { useHistory,useNavigate } from "react-router-dom";
 export default function FormDialog({ setRegistered ,handleLogin}) {
   const history = useNavigate();
   const [open, setOpen] = React.useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleClose = () => {
+    setIsLoading(true)
     setOpen(false);
     setRegistered(false);
   };
@@ -41,34 +43,34 @@ export default function FormDialog({ setRegistered ,handleLogin}) {
         </DialogTitle>
         <DialogContent>
           <DialogContentText className="mt-1 textStyle">
-            You expressly understand that yeepule.network website is only the
+            You expressly understand that nftworldexposure.io website is only the
             interface to interact with smart contracts on the blockchains namely
             "WYchain" & other 4 multi chains like Bsc, Poly & Tron etc. and
-            agree that your use of yeepule.network website(s) is at your sole
+            agree that your use of nftworldexposure.io website(s) is at your sole
             risk and that the services are provided "As is" and "As available"
             without warranty of any kind, either expressed or implied, that is
             not expressly stated in the official documentation. Additionally no
             advice or information, whether oral or written, obtained by you from
-            members/participants of the yeep ule community shall create any
+            members/participants of the nftworldexposure community shall create any
             warranty that is not expressly stated in the official documentation.
-            In no event shall yeepule.network be held liable to you or any third
+            In no event shall nftworldexposure.io be held liable to you or any third
             party for any damages including, but not limited to, indirect,
             special, incidental or consequential damages or other losses
             (including damages for loss of business, loss of profits, lost
             savings, business interruption or the like), arising from the use of
             website(s), customer products or external links and affiliate
             websites. You, your partners and any third parties, agree to
-            indemnify and hold harmless yeep ule from any damages claimed as a
+            indemnify and hold harmless nftworldexposure from any damages claimed as a
             result of services, products, information and resources obtained
-            from yeep ule and/or in any event including, but not limited to,
+            from nftworldexposure and/or in any event including, but not limited to,
             spam, account hacking, identity theft, virus attack, fraudulent or
             criminal activities (including real, perceived, probable or
-            suspected fraud/crime). Yeep ule shall not be held liable based on
+            suspected fraud/crime). nftworldexposure shall not be held liable based on
             any theory of liability including breach of contract, breach of
             warranty, tort (including negligence), product liability or
-            otherwise, even if members of the yeep ule community or its
+            otherwise, even if members of the nftworldexposure community or its
             representatives have been advised of the possibility of such damages
-            and even if a remedy set forth by yeep ule is found to have failed
+            and even if a remedy set forth by nftworldexposure is found to have failed
             of its essential purpose.
             <div class="terms">
               <input
@@ -83,11 +85,16 @@ export default function FormDialog({ setRegistered ,handleLogin}) {
         </DialogContent>
         <DialogActions className="d-flex justify-content-center align-items-center p-5">
           <Button
-            disabled={!accept}
+            disabled={!accept + isLoading}
             onClick={handleLogin}
             className="loginbtn"
             fullWidth
           >
+            {isLoading && (
+                        <div class="spinner-border text-secondary" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                      )}{' '}
             Accept
           </Button>
         </DialogActions>

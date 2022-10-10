@@ -29,7 +29,7 @@ const Total_Earning = (props) => {
                         </div>
                         <div class="col border-end">
                           <h5 class="mb-0 dash-h3">$ {props.data.withdrawal}</h5>
-                          <small class="extra-small-font">NFT Net Balance</small>
+                          <small class="extra-small-font">NFT Withdrawal</small>
                         </div>
                       </div>
                     </div>
